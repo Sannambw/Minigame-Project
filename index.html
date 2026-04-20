@@ -1,33 +1,40 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klickspel</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
 </head>
-
 <body>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+<div class="game">
+  <h1>Klickspel</h1>
+  <p class="info">Klicka så många gånger du kan innan tiden tar slut!</p>
 
+  <div class="boxes">
+    <div class="box">
+      <p>Poäng</p>
+      <span id="score">0</span>
+    </div>
+
+    <div class="box">
+      <p>Tid kvar</p>
+      <span id="timer">60</span>
+    </div>
+  </div>
+
+  <button id="clickButton">Klicka här!</button>
+
+</div>
+
+<div id="gameOverBox">
+  <div class="popup">
+
+    <p id="message"></p>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
 </body>
-
 </html>
