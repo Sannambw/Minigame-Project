@@ -31,3 +31,10 @@ button {
   gap: 40px; /* avstånd mellan */
   margin: 20px 0;
 }
+#gameOverBox {
+  display: none;
+}
+
+#gameOverBox.show {
+  display: block;
+}
