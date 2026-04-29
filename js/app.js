@@ -1,3 +1,5 @@
+// Klickspel: håller koll på poäng och tid, avslutar spelet efter 60 sekunder
+// och sparar/hämtar resultat från en resultattavla via API
 let score = 0;
 let timeLeft = 60;
 let gameStarted = false;
@@ -9,28 +11,25 @@ const postUrl = "https://hooks.zapier.com/hooks/catch/8338993/ujs9jj9/";
 const getUrl = "https://script.google.com/macros/s/AKfycbys5aEPMvNCutyhNYYCcQcCjzsi2UtqNspmKyCH-AicJxJbCJMrAoT0LUaYaXhTWA8n/exec";
 
 // Hämta element
-let button = document.getElementById("clickButton");
-let scoreText = document.getElementById("score");
-let timerText = document.getElementById("timer");
-let finalResult = document.getElementById("finalResult");
-let gameOverBox = document.getElementById("gameOverBox");
-let playerName = document.getElementById("playerName");
-let message = document.getElementById("message");
-let leaderboardPopup = document.getElementById("leaderboardPopup");
-let leaderboardList = document.getElementById("leaderboardList");
+let button = document.getElementById("clickButton"); // Hämtar knappen som spelaren klickar på
+let scoreText = document.getElementById("score"); // Visar spelarens nuvarande poäng
+let timerText = document.getElementById("timer"); // Visar hur mycket tid som är kvar
+let finalResult = document.getElementById("finalResult"); // Visar slutpoängen när spelet är över
+let gameOverBox = document.getElementById("gameOverBox"); // Rutan som visas när spelet är slut
+let playerName = document.getElementById("playerName"); // Inputfält där spelaren skriver sitt namn
+let message = document.getElementById("message"); // Visar meddelanden till spelaren (t.ex. sparat resultat)
+let leaderboardPopup = document.getElementById("leaderboardPopup"); // Popupen för resultattavlan
+let leaderboardList = document.getElementById("leaderboardList"); // Listan där toppresultaten visas
 
-
-// Klick på spelknappen
+// Hanterar klick: startar spelet första gången och ökar poängen så länge spelet inte är slut
 button.onclick = function () {
   if (gameStarted === false) {
     startGame();
     gameStarted = true;
   }
-
   if (gameEnded === true) {
     return;
   }
-
   score++;
   console.log(score);
   scoreText.innerText = score;
@@ -96,7 +95,7 @@ async function saveScore() {
   }
 }
 
-// Hämta leaderboard från Google Sheet
+// Hämta resultattavlan från Google Sheet
 async function showLeaderboard() {
   leaderboardList.innerHTML = "<p>Laddar...</p>";
 
@@ -108,7 +107,7 @@ async function showLeaderboard() {
 
     leaderboardList.innerHTML = "";
 
-    // Visa topp 10
+    // Sorterar resultaten så att högsta poäng visas först och tar ut topp 10
     const topTen = data
       .sort((a, b) => Number(b.score) - Number(a.score))
       .slice(0, 10);

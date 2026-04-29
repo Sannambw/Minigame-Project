@@ -28,28 +28,25 @@
   <p class="info">Klicka så många gånger du kan innan tiden tar slut!</p>
   <!-- Kort instruktion till spelaren -->
 
-  <div class="boxes">
-    <!-- Wrapper runt poäng- och timer-rutorna -->
+  <!-- Wrapper runt poäng- och timer-rutorna -->
 
-    <div class="stats">
-      <div>
-        <p>Mina poäng</p>
-        <p id="score">0</p>
-      </div>
-
-      <div>
-        <p>Tid kvar</p>
-        <p id="timer">60</p>
-      </div>
+  <div class="stats">
+    <div>
+      <p>Mina poäng</p>
+      <p id="score">0</p>
     </div>
-      <!-- Här visas tiden. JavaScript räknar ner från 60 -->
+
+    <div>
+      <p>Tid kvar</p>
+      <p id="timer">60</p>
     </div>
   </div>
+  <!-- Här visas tiden. JavaScript räknar ner från 60 -->
 
   <button id="clickButton">Klicka här!</button>
   <!-- Knappen spelaren klickar på för att få poäng -->
 
-<!-- Startar om spelet genom JavaScript-funktionen restartGame() -->
+
   <!-- GAME OVER -->
   <div id="gameOverBox">
     <!-- Den här rutan är dold från början och visas när spelet är slut -->
@@ -79,9 +76,10 @@
   </div>
 </div>
 
-<!-- LEADERBOARD POPUP -->
+<!-- RESULTATTAVLA -->
 <div id="leaderboardPopup">
-  <!-- Popupen för leaderboard. Den är dold från början -->
+
+  <!-- Resultattavlan är dold från början och visas när resultatet sparas -->
 
   <div class="popup">
     <!-- Själva vita popup-rutan -->

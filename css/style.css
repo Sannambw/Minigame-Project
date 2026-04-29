@@ -10,15 +10,14 @@ html {
 }
 
 /*
- * Remove text-shadow in selection highlight
  * Egna styles för spelet
  */
 
 body {
-  text-align: center;
-}         /* hela skärmen */
+  text-align: center; /* hela skärmen */
+}
 button {
-  background-color: pink;
+  background-color: pink; /* Knappens färg */
   color: black;
   border: none;
   padding: 10px 20px;
@@ -27,12 +26,12 @@ button {
 }
 .stats {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centrerat spel */
   gap: 40px; /* avstånd mellan */
   margin: 20px 0;
 }
 #gameOverBox {
-  display: none;
+  display: none; /* Dölj game over-rutan från början */
 }
 
 #gameOverBox.show {
