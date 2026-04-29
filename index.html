@@ -1,40 +1,111 @@
 <!DOCTYPE html>
 <html lang="sv">
+<!-- Säger att sidan är HTML och att språket är svenska -->
+
 <head>
   <meta charset="UTF-8">
+  <!-- Gör att å, ä, ö fungerar -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Gör sidan responsiv på mobil -->
+
   <title>Klickspel</title>
+  <!-- Namnet som syns i browser-fliken -->
+
   <link rel="stylesheet" href="css/style.css">
+  <!-- Kopplar HTML till din CSS-fil -->
 </head>
+
 <body>
+<!-- Allt som syns på sidan ligger i body -->
 
 <div class="game">
+  <!-- Hela spelet ligger i denna div -->
+
   <h1>Klickspel</h1>
+  <!-- Stor rubrik -->
+
   <p class="info">Klicka så många gånger du kan innan tiden tar slut!</p>
+  <!-- Kort instruktion till spelaren -->
 
   <div class="boxes">
+    <!-- Wrapper runt poäng- och timer-rutorna -->
+
     <div class="box">
-      <p>Poäng</p>
+      <!-- Ruta för poäng -->
+
+      <p>Mina poäng</p>
+      <!-- Text ovanför poängen -->
+
       <span id="score">0</span>
+      <!-- Här visas poängen. JavaScript ändrar värdet -->
     </div>
 
     <div class="box">
+      <!-- Ruta för tid -->
+
       <p>Tid kvar</p>
+      <!-- Text ovanför tiden -->
+
       <span id="timer">60</span>
+      <!-- Här visas tiden. JavaScript räknar ner från 60 -->
     </div>
   </div>
 
   <button id="clickButton">Klicka här!</button>
+  <!-- Knappen spelaren klickar på för att få poäng -->
 
+  <!-- GAME OVER -->
+  <div id="gameOverBox">
+    <!-- Den här rutan är dold från början och visas när spelet är slut -->
+
+    <div class="gameover-content">
+      <!-- Innehållet i game over-rutan -->
+
+      <h2>Spelet är slut!</h2>
+      <!-- Rubrik när tiden är slut -->
+
+      <p id="finalResult">Din poäng: 0</p>
+      <!-- Här skriver JavaScript ut slutpoängen -->
+
+      <div class="save-row">
+        <!-- Wrapper för input + spara-knapp -->
+
+        <input type="text" id="playerName" placeholder="Skriv ditt namn">
+        <!-- Här skriver spelaren sitt namn -->
+
+        <button onclick="saveScore()">Spara resultat</button>
+        <!-- När man klickar körs funktionen saveScore() i JavaScript -->
+      </div>
+
+      <p id="message"></p>
+      <!-- Här visas meddelanden, t.ex. “Resultatet sparades!” -->
+
+      <button onclick="restartGame()">Spela igen</button>
+      <!-- Startar om spelet genom JavaScript-funktionen restartGame() -->
+    </div>
+  </div>
 </div>
 
-<div id="gameOverBox">
-  <div class="popup">
+<!-- LEADERBOARD POPUP -->
+<div id="leaderboardPopup">
+  <!-- Popupen för leaderboard. Den är dold från början -->
 
-    <p id="message"></p>
+  <div class="popup">
+    <!-- Själva vita popup-rutan -->
+
+    <h2>Leaderboard</h2>
+    <!-- Rubrik för topplistan -->
+
+    <div id="leaderboardList"></div>
+    <!-- Här skriver JavaScript ut alla resultat från Google Sheet -->
+
+    <button onclick="restartGame()">Spela igen</button>
+    <!-- Startar om spelet -->
   </div>
 </div>
 
 <script src="js/app.js"></script>
+<!-- Kopplar HTML till din JavaScript-fil. Ska ligga längst ner -->
 </body>
 </html>
