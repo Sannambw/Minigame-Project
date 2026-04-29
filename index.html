@@ -22,7 +22,7 @@
 <div class="game">
   <!-- Hela spelet ligger i denna div -->
 
-  <h1>Klickspel</h1>
+  <h1> 🕹️ Klickspel 🕹️ </h1>
   <!-- Stor rubrik -->
 
   <p class="info">Klicka så många gånger du kan innan tiden tar slut!</p>
@@ -31,29 +31,25 @@
   <div class="boxes">
     <!-- Wrapper runt poäng- och timer-rutorna -->
 
-    <div class="box">
-      <!-- Ruta för poäng -->
+    <div class="stats">
+      <div>
+        <p>Mina poäng</p>
+        <p id="score">0</p>
+      </div>
 
-      <p>Mina poäng</p>
-      <!-- Text ovanför poängen -->
-
-      <span id="score">0</span>
-      <!-- Här visas poängen. JavaScript ändrar värdet -->
+      <div>
+        <p>Tid kvar</p>
+        <p id="timer">60</p>
+      </div>
     </div>
-
-    <div class="box">
-      <!-- Ruta för tid -->
-
-      <p>Tid kvar</p>
-      <!-- Text ovanför tiden -->
-
-      <span id="timer">60</span>
       <!-- Här visas tiden. JavaScript räknar ner från 60 -->
     </div>
   </div>
 
   <button id="clickButton">Klicka här!</button>
   <!-- Knappen spelaren klickar på för att få poäng -->
+<button onclick="restartGame()">Spela igen</button>
+<!-- Startar om spelet genom JavaScript-funktionen restartGame() -->
 
   <!-- GAME OVER -->
   <div id="gameOverBox">
@@ -61,9 +57,6 @@
 
     <div class="gameover-content">
       <!-- Innehållet i game over-rutan -->
-
-      <h2>Spelet är slut!</h2>
-      <!-- Rubrik när tiden är slut -->
 
       <p id="finalResult">Din poäng: 0</p>
       <!-- Här skriver JavaScript ut slutpoängen -->
@@ -81,8 +74,7 @@
       <p id="message"></p>
       <!-- Här visas meddelanden, t.ex. “Resultatet sparades!” -->
 
-      <button onclick="restartGame()">Spela igen</button>
-      <!-- Startar om spelet genom JavaScript-funktionen restartGame() -->
+
     </div>
   </div>
 </div>
