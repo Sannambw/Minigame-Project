@@ -18,6 +18,7 @@ let message = document.getElementById("message");
 let leaderboardPopup = document.getElementById("leaderboardPopup");
 let leaderboardList = document.getElementById("leaderboardList");
 
+
 // Klick på spelknappen
 button.onclick = function () {
   if (gameStarted === false) {
@@ -30,6 +31,7 @@ button.onclick = function () {
   }
 
   score++;
+  console.log(score);
   scoreText.innerText = score;
 };
 
