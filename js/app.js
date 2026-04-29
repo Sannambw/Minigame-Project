@@ -5,7 +5,8 @@ let gameEnded = false;
 let interval = null;
 
 // DIN GOOGLE APPS SCRIPT-LÄNK
-const apiUrl = "https://hooks.zapier.com/hooks/catch/8338993/ujs9jj9/";
+const postUrl = "https://hooks.zapier.com/hooks/catch/8338993/ujs9jj9/";
+const getUrl = "https://script.google.com/macros/s/AKfycbys5aEPMvNCutyhNYYCcQcCjzsi2UtqNspmKyCH-AicJxJbCJMrAoT0LUaYaXhTWA8n/exec";
 
 // Hämta element
 let button = document.getElementById("clickButton");
@@ -66,6 +67,7 @@ function endGame() {
 async function saveScore() {
   let name = playerName.value.trim();
 
+
   if (name === "") {
     message.innerText = "Skriv ditt namn först!";
     return;
@@ -76,7 +78,7 @@ async function saveScore() {
     formData.append("name", name);
     formData.append("score", score);
 
-    const response = await fetch(apiUrl, {
+    const response = await fetch(postUrl, {
       method: "POST",
       body: formData
     });
@@ -101,7 +103,7 @@ async function showLeaderboard() {
   leaderboardPopup.classList.add("show");
 
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(getUrl);
     const data = await response.json();
 
     leaderboardList.innerHTML = "";
