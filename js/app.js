@@ -109,7 +109,9 @@ async function showLeaderboard() {
     leaderboardList.innerHTML = "";
 
     // Visa topp 10
-    const topTen = data.slice(0, 10);
+    const topTen = data
+      .sort((a, b) => Number(b.score) - Number(a.score))
+      .slice(0, 10);
 
     for (let i = 0; i < topTen.length; i++) {
       leaderboardList.innerHTML += `
