@@ -5,7 +5,7 @@ let gameEnded = false;
 let interval = null;
 
 // DIN GOOGLE APPS SCRIPT-LÄNK
-const apiUrl = "PASTA_IN_DIN_APPS_SCRIPT_LÄNK_HÄR";
+const apiUrl = "https://hooks.zapier.com/hooks/catch/8338993/ujs9jj9/";
 
 // Hämta element
 let button = document.getElementById("clickButton");
